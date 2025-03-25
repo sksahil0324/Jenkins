@@ -1,0 +1,26 @@
+pipeline {
+    agent any  // Specifies where the pipeline runs (e.g., any available agent)
+
+    stages {  // Groups stages of the pipeline
+        stage('Build') {
+            steps {
+                sh 'echo "Building the application..."'
+                sh 'mvn clean compile'  // Example: Build with Maven
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'echo "Running tests..."'
+                sh 'mvn test'  // Example: Run tests with Maven
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deploying to server..."'
+                sh 'mvn deploy'  // Example: Deploy with Maven
+            }
+        }
+    }
+}
